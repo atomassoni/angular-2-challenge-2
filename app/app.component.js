@@ -9,22 +9,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require('@angular/core');
-const HEROES = [
-    { id: 11, name: 'Mr. Nice' },
-    { id: 12, name: 'Narco' },
-    { id: 13, name: 'Bombasto' },
-    { id: 14, name: 'Celeritas' },
-    { id: 15, name: 'Magneta' },
-    { id: 16, name: 'RubberMan' },
-    { id: 17, name: 'Dynama' },
-    { id: 18, name: 'Dr IQ' },
-    { id: 19, name: 'Magma' },
-    { id: 20, name: 'Tornado' }
-];
+const hero_service_1 = require('./hero.service');
 let AppComponent = class AppComponent {
-    constructor() {
+    constructor(heroService) {
+        this.heroService = heroService;
         this.title = 'Tour of Heroes';
-        this.heroes = HEROES;
     }
     onSelect(hero) {
         this.selectedHero = hero;
@@ -95,7 +84,7 @@ AppComponent = __decorate([
     }
   `]
     }), 
-    __metadata('design:paramtypes', [])
+    __metadata('design:paramtypes', [hero_service_1.HeroService])
 ], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map
