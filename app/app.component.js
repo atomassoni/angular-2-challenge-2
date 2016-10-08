@@ -15,6 +15,12 @@ let AppComponent = class AppComponent {
         this.heroService = heroService;
         this.title = 'Tour of Heroes';
     }
+    getHeroes() {
+        this.heroService.getHeroes().then(heroes => this.heroes = heroes);
+    }
+    ngOnInit() {
+        this.getHeroes();
+    }
     onSelect(hero) {
         this.selectedHero = hero;
     }
@@ -82,9 +88,15 @@ AppComponent = __decorate([
       margin-right: .8em;
       border-radius: 4px 0 0 4px;
     }
-  `]
+  `],
+        providers: [hero_service_1.HeroService]
     }), 
     __metadata('design:paramtypes', [hero_service_1.HeroService])
 ], AppComponent);
 exports.AppComponent = AppComponent;
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/ 
 //# sourceMappingURL=app.component.js.map

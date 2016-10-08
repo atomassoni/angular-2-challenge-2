@@ -12,7 +12,12 @@ const core_1 = require('@angular/core');
 const mock_heroes_1 = require('./mock-heroes');
 let HeroService = class HeroService {
     getHeroes() {
-        return mock_heroes_1.HEROES;
+        return Promise.resolve(mock_heroes_1.HEROES);
+    }
+    // See the "Take it slow" appendix
+    getHeroesSlowly() {
+        return new Promise(resolve => setTimeout(resolve, 2000)) // delay 2 seconds
+            .then(() => this.getHeroes());
     }
 };
 HeroService = __decorate([
